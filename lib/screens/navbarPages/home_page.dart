@@ -10,10 +10,10 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   var items = {
-    "assets/hik1.jpg": "Mountains",
-    "assets/hik2.jpg": "Camp",
-    "assets/hik3.jpg": "Beach",
-    "assets/hik4.jpg": "Park"
+    "assets/mountain.jpeg": "Mountains",
+    "assets/snorkling.png": "Snorking",
+    "assets/kayaking.png": "Kayaking",
+    "assets/balloning.png": "Balloning"
   };
 
   @override
@@ -120,9 +120,9 @@ class _HomePageState extends State<HomePage> {
                                 height: double.maxFinite,
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(20),
-                                  image: DecorationImage(
+                                  image: const DecorationImage(
                                     image: AssetImage(
-                                      items.keys.elementAt(index),
+                                      "assets/hik1.jpg",
                                     ),
                                     fit: BoxFit.cover,
                                   ),
@@ -238,8 +238,8 @@ class _HomePageState extends State<HomePage> {
                             right: 10,
                             top: 10,
                           ),
-                          width: 80,
-                          height: 80,
+                          width: 75,
+                          height: 75,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20),
                             image: DecorationImage(
@@ -248,11 +248,14 @@ class _HomePageState extends State<HomePage> {
                             ),
                           ),
                         ),
+                        const SizedBox(
+                          height: 5,
+                        ),
                         Text(
                           items.values.elementAt(index),
-                          style: const TextStyle(
-                            color: Colors.black,
-                            fontSize: 15,
+                          style: TextStyle(
+                            color: Colors.grey[600],
+                            fontSize: 14,
                           ),
                         ),
                       ],

@@ -12,9 +12,9 @@ class SplashPage extends StatefulWidget {
 
 class _SplashPageState extends State<SplashPage> {
   List img = [
-    "assets/hik1.jpg",
-    "assets/hik2.jpg",
-    "assets/hik3.jpg",
+    "assets/welcome-two.png",
+    "assets/wekcome-three.png",
+    "assets/welcome-one.png",
   ];
   @override
   Widget build(BuildContext context) {
