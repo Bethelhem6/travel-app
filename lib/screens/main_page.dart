@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:travel_app/screens/navbarPages/bar_item_page.dart';
+
+import 'package:travel_app/screens/navbarPages/blogs_screen.dart';
 import 'package:travel_app/screens/navbarPages/my_page.dart';
-import 'package:travel_app/screens/navbarPages/search_page.dart';
+
+import 'package:travel_app/screens/navbarPages/search_screen.dart';
 
 import 'navbarPages/home_page.dart';
 
@@ -15,8 +17,8 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   List pages = [
     HomePage(),
-    BarItemPage(),
-    SearchPage(),
+    BlogScreen(),
+    SearchScreen(),
     MyPage(),
   ];
   int currentIndex = 0;

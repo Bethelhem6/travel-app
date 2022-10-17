@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:travel_app/models/places.dart';
 
 import 'package:travel_app/widgets/button.dart';
 
 class DetailsPage extends StatefulWidget {
-  const DetailsPage({Key? key}) : super(key: key);
+  final Places placesDetail;
+
+  const DetailsPage({Key? key, required this.placesDetail}) : super(key: key);
 
   @override
   State<DetailsPage> createState() => _DetailsPageState();
@@ -21,11 +24,9 @@ class _DetailsPageState extends State<DetailsPage> {
             right: 0,
             child: Container(
               height: 300,
-              decoration: const BoxDecoration(
+              decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage(
-                    "assets/hik1.jpg",
-                  ),
+                  image: AssetImage("assets/" + widget.placesDetail.img),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -47,38 +48,36 @@ class _DetailsPageState extends State<DetailsPage> {
                   ),
                 ),
               ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+              child: ListView(
+                // crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
                     padding: const EdgeInsets.only(
-                      top: 20.0,
+                      // top: 20.0,
                       left: 20,
                     ),
-                    child: Row(children: const [
-                      Text(
-                        "Passo Rolle, TN",
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 25,
-                          fontWeight: FontWeight.bold,
-                        ),
+                    child: Text(
+                      widget.placesDetail.name,
+                      style: const TextStyle(
+                        color: Colors.black,
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold,
                       ),
-                      SizedBox(
-                        width: 30,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 20.0, top: 5),
+                    child: Wrap(
+                      children: List.generate(
+                        5,
+                        (index) {
+                          return Icon(
+                            Icons.star,
+                            color: Colors.orange,
+                          );
+                        },
                       ),
-                      Icon(
-                        Icons.star_border,
-                        color: Colors.grey,
-                      ),
-                      Text(
-                        "4.3(9% review)",
-                        style: TextStyle(
-                          color: Colors.grey,
-                          fontSize: 15,
-                        ),
-                      ),
-                    ]),
+                    ),
                   ),
                   Container(
                     padding:
@@ -89,7 +88,7 @@ class _DetailsPageState extends State<DetailsPage> {
                         color: Colors.grey,
                       ),
                       Text(
-                        "Italy",
+                        "Ethiopia",
                         style: TextStyle(
                           color: Colors.grey,
                           fontSize: 15,
@@ -173,15 +172,17 @@ class _DetailsPageState extends State<DetailsPage> {
                           fontWeight: FontWeight.bold),
                     ),
                   ),
-                  const Padding(
-                    padding: EdgeInsets.only(
+                  Container(
+                    height: 400,
+                    padding: const EdgeInsets.only(
                       top: 10.0,
                       left: 20,
                       right: 20,
+                      bottom: 10,
                     ),
                     child: Text(
-                      "kfhu dih duvn dvusd djhsv d hdifhndsf isdjf bbsdnb vdhfs hdjf d fhsdofsdifhd f iofhhfh kfhu dih duvn dvusd djhsv d hdifhndsf isdjf bbsdnb vdhfs hdjf d fhsdofsdifhd f iofhhfh kfhu dih duvn dvusd djhsv d hdifhndsf isdjf bbsdnb vdhfs hdjf d fhsdofsdifhd f iofhhfh",
-                      style: TextStyle(
+                      widget.placesDetail.description,
+                      style: const TextStyle(
                         color: Colors.grey,
                         fontSize: 15,
                       ),

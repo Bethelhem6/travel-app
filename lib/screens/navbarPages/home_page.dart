@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:travel_app/screens/details_page.dart';
+
+import '../../models/places.dart';
+import '../../widgets/card_widget.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -11,15 +13,15 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   var items = {
     "assets/mountain.jpeg": "Mountains",
-    "assets/snorkling.png": "Snorking",
+    "assets/snorkling.png": "Cities",
     "assets/kayaking.png": "Kayaking",
-    "assets/balloning.png": "Balloning"
+    "assets/balloning.png": "Parks"
   };
 
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 4,
+      length: 3,
       child: Scaffold(
         backgroundColor: Colors.deepPurple[50],
         body: Container(
@@ -37,7 +39,7 @@ class _HomePageState extends State<HomePage> {
                   Text(
                     "Hi Bethelhem,",
                     style: TextStyle(
-                      fontWeight: FontWeight.bold,
+                      fontWeight: FontWeight.normal,
                       fontSize: 18,
                     ),
                   ),
@@ -47,11 +49,19 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
               const SizedBox(height: 15),
-              const Text(
-                "Where do you want to go?",
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 35,
+              Container(
+                padding: EdgeInsets.all(20),
+                height: 100,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  color: Colors.white,
+                ),
+                child: const Text(
+                  "Tour with Us. Here are some Best places to visit in Ethiopia!",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20,
+                  ),
                 ),
               ),
               const SizedBox(height: 25),
@@ -64,23 +74,25 @@ class _HomePageState extends State<HomePage> {
               ),
               const SizedBox(height: 15),
               Container(
+                margin: const EdgeInsets.only(
+                  bottom: 10,
+                ),
                 alignment: Alignment.centerLeft,
-                child: const TabBar(
-                    indicatorColor: Colors.transparent,
-                    labelPadding: EdgeInsets.only(left: 0, right: 20),
+                child: TabBar(
+                    labelPadding: const EdgeInsets.only(left: 0, right: 20),
                     isScrollable: true,
-                    indicatorSize: TabBarIndicatorSize.label,
+                    // indicatorSize: TabBarIndicatorSize.tab,
                     labelColor: Colors.deepPurple,
-                    unselectedLabelColor: Colors.black,
-                    labelStyle: TextStyle(
+                    unselectedLabelColor: Colors.grey[600],
+                    labelStyle: const TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontSize: 18,
+                      fontSize: 23,
                     ),
-                    unselectedLabelStyle: TextStyle(
+                    unselectedLabelStyle: const TextStyle(
                       fontWeight: FontWeight.normal,
-                      fontSize: 15,
+                      fontSize: 17,
                     ),
-                    tabs: [
+                    tabs: const [
                       Tab(
                         text: "All",
                       ),
@@ -90,116 +102,20 @@ class _HomePageState extends State<HomePage> {
                       Tab(
                         text: "Recommended",
                       ),
-                      Tab(
-                        text: "Most Viewed",
-                      ),
                     ]),
               ),
               Expanded(
                 child: TabBarView(
                   children: [
-                    ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: items.length,
-                      itemBuilder: (context, index) {
-                        return GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const DetailsPage(),
-                              ),
-                            );
-                          },
-                          child: Stack(
-                            children: [
-                              Container(
-                                margin:
-                                    const EdgeInsets.only(left: 0, right: 20),
-                                width: 200,
-                                height: double.maxFinite,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(20),
-                                  image: const DecorationImage(
-                                    image: AssetImage(
-                                      "assets/hik1.jpg",
-                                    ),
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                              ),
-                              Positioned(
-                                bottom: 5,
-                                left: 5,
-                                right: 25,
-                                child: Container(
-                                  height: 60,
-                                  decoration: BoxDecoration(
-                                    color: Colors.grey[100],
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                  padding: const EdgeInsets.only(
-                                    top: 5,
-                                    left: 10,
-                                    right: 5,
-                                  ),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      const Text(
-                                        "Passo Rolle, TN",
-                                        style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 18,
-                                        ),
-                                      ),
-                                      const SizedBox(
-                                        height: 5,
-                                      ),
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        children: const [
-                                          Icon(
-                                            Icons.location_on_outlined,
-                                            color: Colors.grey,
-                                          ),
-                                          Text(
-                                            "Tanzania",
-                                            style: TextStyle(
-                                              fontSize: 15,
-                                              color: Colors.grey,
-                                            ),
-                                          ),
-                                          SizedBox(
-                                            width: 30,
-                                          ),
-                                          Icon(
-                                            Icons.star_border,
-                                            color: Colors.grey,
-                                          ),
-                                          Text(
-                                            "4.3",
-                                            style: TextStyle(
-                                              color: Colors.grey,
-                                              fontSize: 15,
-                                            ),
-                                          ),
-                                        ],
-                                      )
-                                    ],
-                                  ),
-                                ),
-                              )
-                            ],
-                          ),
-                        );
-                      },
+                    CardWidget(
+                      placesType: Places.allPlaces,
                     ),
-                    const Text("all22"),
-                    const Text("all2244"),
-                    const Text("all224466"),
+                    CardWidget(
+                      placesType: Places.popular,
+                    ),
+                    CardWidget(
+                      placesType: Places.recommended,
+                    ),
                   ],
                 ),
               ),
