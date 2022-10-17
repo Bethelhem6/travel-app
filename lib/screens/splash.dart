@@ -1,7 +1,5 @@
-import 'dart:ui';
-
-import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
+import 'package:travel_app/screens/main_page.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({Key? key}) : super(key: key);
@@ -12,9 +10,9 @@ class SplashPage extends StatefulWidget {
 
 class _SplashPageState extends State<SplashPage> {
   List img = [
-    "assets/welcome-two.png",
-    "assets/wekcome-three.png",
-    "assets/welcome-one.png",
+    "assets/axum.jpeg",
+    "assets/dankil.jpg",
+    "assets/arbaminch.jpg",
   ];
   @override
   Widget build(BuildContext context) {
@@ -34,7 +32,7 @@ class _SplashPageState extends State<SplashPage> {
               child: Container(
                 margin: const EdgeInsets.only(
                   top: 50,
-                  right: 10,
+                  right: 3,
                 ),
                 child: Column(
                   children: [
@@ -45,9 +43,9 @@ class _SplashPageState extends State<SplashPage> {
                           3,
                           (dotIndex) {
                             return Container(
-                              margin: const EdgeInsets.only(right: 10),
+                              margin: const EdgeInsets.only(right: 3),
                               height: 8,
-                              width: index == dotIndex ? 50 : 18,
+                              width: index == dotIndex ? 50 : 15,
                               decoration: BoxDecoration(
                                 color: index == dotIndex
                                     ? Colors.deepPurple
@@ -95,7 +93,12 @@ class _SplashPageState extends State<SplashPage> {
                     ),
                     index == 2
                         ? GestureDetector(
-                            onTap: () {},
+                            onTap: () {
+                              Navigator.pushReplacement(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => MainPage()));
+                            },
                             child: Container(
                               padding: const EdgeInsets.symmetric(
                                 // horizontal: 20,

@@ -50,8 +50,8 @@ class _HomePageState extends State<HomePage> {
               ),
               const SizedBox(height: 15),
               Container(
-                padding: EdgeInsets.all(20),
-                height: 100,
+                padding: const EdgeInsets.all(10),
+                height: 80,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
                   color: Colors.white,
@@ -64,15 +64,15 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
               ),
-              const SizedBox(height: 25),
+              const SizedBox(height: 20),
               const Text(
-                "Explore Cities",
+                "Explore Places",
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 20,
                 ),
               ),
-              const SizedBox(height: 15),
+              const SizedBox(height: 5),
               Container(
                 margin: const EdgeInsets.only(
                   bottom: 10,
@@ -81,7 +81,6 @@ class _HomePageState extends State<HomePage> {
                 child: TabBar(
                     labelPadding: const EdgeInsets.only(left: 0, right: 20),
                     isScrollable: true,
-                    // indicatorSize: TabBarIndicatorSize.tab,
                     labelColor: Colors.deepPurple,
                     unselectedLabelColor: Colors.grey[600],
                     labelStyle: const TextStyle(
@@ -139,7 +138,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ],
               ),
-              Container(
+              SizedBox(
                 height: 120,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,

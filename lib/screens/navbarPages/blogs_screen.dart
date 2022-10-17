@@ -14,7 +14,7 @@ class _BlogScreenState extends State<BlogScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           "Blogs",
           style: TextStyle(
             color: Colors.black,
@@ -27,7 +27,7 @@ class _BlogScreenState extends State<BlogScreen> {
         backgroundColor: Colors.deepPurple[100],
       ),
       body: SafeArea(
-        child: Container(
+        child: SizedBox(
           height: double.maxFinite,
           child: ListView.builder(
             itemCount: Places.popular.length,
@@ -62,7 +62,7 @@ class _BlogScreenState extends State<BlogScreen> {
                                 color: Colors.white,
                                 borderRadius: BorderRadius.circular(20),
                               ),
-                              padding: EdgeInsets.all(20),
+                              padding: const EdgeInsets.all(20),
                               child: Text(
                                 Places.popular[index].name,
                                 style: TextStyle(
@@ -86,7 +86,7 @@ class _BlogScreenState extends State<BlogScreen> {
                       ),
                     ]),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 30,
                   ),
                 ],

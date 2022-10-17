@@ -1,3 +1,5 @@
+// ignore_for_file: depend_on_referenced_packages
+
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
@@ -7,7 +9,7 @@ part 'seach_event.dart';
 part 'seach_state.dart';
 
 class SeachBloc extends Bloc<SeachEvent, SeachState> {
-  SeachBloc() : super(SeachInitial(searchResult: [])) {
+  SeachBloc() : super(const SeachInitial(searchResult: [])) {
     on<OnSearchEvent>((event, emit) {
       List<Places> searchResult = state.searchResult;
       String input = event.input;

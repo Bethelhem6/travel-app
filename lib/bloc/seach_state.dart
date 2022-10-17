@@ -4,7 +4,7 @@ class SeachState extends Equatable {
   final List<Places> searchResult;
   final String message;
 
-  SeachState({
+  const SeachState({
     required this.searchResult,
     this.message = "Search here...",
   });
@@ -14,5 +14,5 @@ class SeachState extends Equatable {
 }
 
 class SeachInitial extends SeachState {
-  SeachInitial({required super.searchResult});
+  const SeachInitial({required super.searchResult});
 }

@@ -26,7 +26,7 @@ class _DetailsPageState extends State<DetailsPage> {
               height: 300,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage("assets/" + widget.placesDetail.img),
+                  image: AssetImage("assets/${widget.placesDetail.img}"),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -71,7 +71,7 @@ class _DetailsPageState extends State<DetailsPage> {
                       children: List.generate(
                         5,
                         (index) {
-                          return Icon(
+                          return const Icon(
                             Icons.star,
                             color: Colors.orange,
                           );
